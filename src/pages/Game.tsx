@@ -9,6 +9,7 @@ import {
   GameOverDialog,
 } from "@/components/game";
 import { Employee, DroppedEmployee, EMPLOYEE_POOL } from "@/types/game";
+import backgroundImage from "@/assets/background.webp";
 
 const Game = () => {
   const location = useLocation();
@@ -116,7 +117,10 @@ const Game = () => {
       {/* Game Area */}
       <div className="flex h-screen">
         {/* Main Game Area - 75% */}
-        <div className="flex-1 relative">
+        <div 
+          className="flex-1 relative bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        >
           <Road isSlowingDown={isSlowingDown} />
           <BarbieBus 
             ref={busRef} 
