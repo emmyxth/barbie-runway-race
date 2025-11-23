@@ -82,8 +82,6 @@ const Setup = () => {
             </div>
           </div>
         </Card>
-
-        {/* Right Side - Barbie Car Preview */}
         <div 
           className="hidden md:flex h-full items-end justify-center animate-bounce-in animation-delay-200 px-12 pb-6 bg-cover bg-center bg-no-repeat relative"
           style={{ backgroundImage: `url(${backgroundImage})` }}
