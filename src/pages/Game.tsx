@@ -130,8 +130,8 @@ const Game = () => {
 
           {/* Bottom Text */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-            <p className="text-2xl font-bold text-foreground drop-shadow-lg">
-              Can you drag your crew onto the Barbie bus?
+            <p className="text-3xl font-bold text-foreground text-white drop-shadow-lg">
+              Can you build Barbie's Dream Team?
             </p>
           </div>
         </div>
