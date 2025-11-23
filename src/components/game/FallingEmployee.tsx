@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { User } from "lucide-react";
 import { Employee } from "@/types/game";
+import { useMemo } from "react";
 
 interface FallingEmployeeProps {
   employee: Employee & { top: number };
@@ -8,13 +9,21 @@ interface FallingEmployeeProps {
 }
 
 export const FallingEmployee = ({ employee, onDragStart }: FallingEmployeeProps) => {
+  // Generate random position and speed once when component mounts
+  const fallConfig = useMemo(() => ({
+    left: Math.random() * 70 + 15, // Random position between 15% and 85%
+    duration: Math.random() * 3 + 3, // Random duration between 5s and 8s
+  }), []);
+
   return (
     <div
       draggable
       onDragStart={() => onDragStart(employee)}
-      className="absolute left-1/2 transform -translate-x-1/2 cursor-move animate-fall-down"
+      className="absolute cursor-move animate-fall-smooth"
       style={{
-        animationDelay: `${Math.random() * 2}s`,
+        left: `${fallConfig.left}%`,
+        transform: "translateX(-50%)",
+        animationDuration: `${fallConfig.duration}s`,
       }}
     >
       <Card className="p-4 bg-card hover:shadow-barbie transition-shadow">

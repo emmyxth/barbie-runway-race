@@ -37,10 +37,10 @@ const Game = () => {
       
       setFallingEmployees((prev) => [...prev, newEmployee]);
 
-      // Remove employee after it falls off screen
+      // Remove employee after it falls off screen (max duration is 8s)
       setTimeout(() => {
         setFallingEmployees((prev) => prev.filter((e) => e.id !== newEmployee.id));
-      }, 8000);
+      }, 9000);
     }, 2000);
 
     return () => clearInterval(interval);

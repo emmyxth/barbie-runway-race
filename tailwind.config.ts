@@ -93,6 +93,10 @@ export default {
           "10%": { opacity: "1" },
           "100%": { transform: "translateY(100vh)", opacity: "1" },
         },
+        "fall-smooth": {
+          "0%": { top: "-200px" },
+          "100%": { top: "100vh" },
+        },
         "bounce-in": {
           "0%": { transform: "scale(0)", opacity: "0" },
           "50%": { transform: "scale(1.1)" },
@@ -113,6 +117,7 @@ export default {
         "slide-right": "slide-right 20s linear infinite",
         "slide-right-slow": "slide-right 40s linear infinite",
         "fall-down": "fall-down 8s linear infinite",
+        "fall-smooth": "fall-smooth 6s linear forwards",
         "bounce-in": "bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
         "wheel-spin": "wheel-spin 1s linear infinite",
         "wheel-spin-slow": "wheel-spin 3s linear infinite",
