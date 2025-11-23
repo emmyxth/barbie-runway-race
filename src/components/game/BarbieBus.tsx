@@ -13,22 +13,13 @@ export const BarbieBus = forwardRef<HTMLDivElement, BarbieBusProps>(
     return (
       <div
         ref={ref}
-        className="absolute bottom-32 left-1/4 w-96 h-64"
+        className="absolute bottom-32 top-8 w-full h-full"
       >
         <img
           src={barbieBus}
           alt="Barbie Bus"
           className="w-full h-full object-contain drop-shadow-2xl"
         />
-        
-        {/* Spinning Wheels */}
-        <div className="absolute bottom-8 left-12 w-16 h-16 rounded-full border-8 border-gray-700 bg-gray-800">
-          <div className={`w-full h-full rounded-full border-4 border-t-gray-300 ${isSlowingDown ? 'animate-wheel-spin-slow' : 'animate-wheel-spin'}`} />
-        </div>
-        <div className="absolute bottom-8 right-16 w-16 h-16 rounded-full border-8 border-gray-700 bg-gray-800">
-          <div className={`w-full h-full rounded-full border-4 border-t-gray-300 ${isSlowingDown ? 'animate-wheel-spin-slow' : 'animate-wheel-spin'}`} />
-        </div>
-
         {/* Employees on Bus */}
         {employees.map((emp) => (
           <div
