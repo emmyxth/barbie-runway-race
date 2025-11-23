@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
+import { Road } from "@/components/game";
 import barbieBus from "@/assets/barbie-bus.png";
 import barbieLogo from "@/assets/barbie-logo.svg";
+import backgroundImage from "@/assets/background.webp";
 
 const Setup = () => {
   const navigate = useNavigate();
@@ -37,13 +39,16 @@ const Setup = () => {
           <div className="space-y-8 w-full max-w-2xl">
             <div className="space-y-3 flex flex-col items-start justify-start">
               <img src={barbieLogo} alt="Barbie Logo" className="h-20 md:h-24" />
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground text-barbie-pink">
                 Startup Dream Team
               </h2>
-              <p className="text-lg text-foreground">
-              Barbie has a super-important pitch tonight for her dazzling new startup, and she NEEDS the perfect dream team by her side. Her iconic Dream Bus is ready to roll but there’s one catch: Barbie only has so much headcount runway left, and every hire counts. 
+              <p className="text-xl text-foreground pt-4">
+              Barbie has a <span className="font-bold">super important</span> pitch tonight for her dazzling new startup, and she NEEDS the perfect dream team by her side. 
+              </p>    
+              <p className="text-xl text-foreground pt-4">
+              Her iconic Dream Bus is ready to roll but there’s one catch: Barbie only has so much headcount runway left, and every hire counts. 
               </p>
-              <p className="text-lg text-foreground">
+              <p className="text-xl text-foreground pt-4">
               <span className="font-bold">Your Mission: </span>Build Barbie’s Dream Team before the headcount runway hits zero!
               </p>
             </div>
@@ -79,18 +84,19 @@ const Setup = () => {
         </Card>
 
         {/* Right Side - Barbie Car Preview */}
-        <div className="hidden md:flex h-full items-center justify-center animate-bounce-in animation-delay-200 px-12">
-          <div className="relative w-full">
-            <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse-glow" />
+        <div 
+          className="hidden md:flex h-full items-end justify-center animate-bounce-in animation-delay-200 px-12 pb-6 bg-cover bg-center bg-no-repeat relative"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        >
+          <div className="relative w-full z-10">
+            <div className="absolute inset-0 rounded-full translate-y-60" />
             <img
               src={barbieBus}
               alt="Barbie Car"
-              className="relative w-full drop-shadow-2xl animate-[float_3s_ease-in-out_infinite]"
-              style={{
-                animation: "float 3s ease-in-out infinite",
-              }}
+              className="relative w-full drop-shadow-2xl"
             />
           </div>
+          <Road isSlowingDown={false} />
         </div>
       </div>
     </div>
