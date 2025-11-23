@@ -79,7 +79,7 @@ const Game = () => {
       };
 
       setEmployees((prev) => [...prev, newEmployee]);
-      setRunway((prev) => Math.max(0, prev - draggedEmployee.monthlyCost));
+      setRunway((prev) => Math.max(0, prev - (draggedEmployee.salaryPerYear / 12000)));
       
       // Remove from falling employees
       setFallingEmployees((prev) => 

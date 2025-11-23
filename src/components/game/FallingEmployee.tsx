@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { User } from "lucide-react";
 import { Employee } from "@/types/game";
 import { useMemo } from "react";
 
@@ -26,14 +25,18 @@ export const FallingEmployee = ({ employee, onDragStart }: FallingEmployeeProps)
         animationDuration: `${fallConfig.duration}s`,
       }}
     >
-      <Card className="p-4 bg-card hover:shadow-barbie transition-shadow">
-        <div className={`w-16 h-16 mx-auto rounded-full ${employee.color} border-2 border-white flex items-center justify-center mb-2`}>
-          <User className="w-8 h-8 text-white" />
+      <Card className="p-2 bg-card hover:shadow-barbie transition-shadow w-40">
+        <div className="w-32 h-32 mx-auto rounded-full border-2 bg-barbie-pink overflow-hidden mb-3">
+          <img 
+            src={employee.image} 
+            alt={employee.name}
+            className="w-full h-full object-cover"
+          />
         </div>
-        <p className="text-center font-semibold text-sm">{employee.name}</p>
-        <p className="text-center text-xs text-muted-foreground">{employee.role}</p>
-        <p className="text-center text-xs font-bold text-primary mt-1">
-          {employee.monthlyCost} months
+        <p className="text-center font-semibold text-base">{employee.name}</p>
+        <p className="text-center text-md text-muted-foreground">{employee.role}</p>
+        <p className="text-center text-md font-bold text-primary">
+          ${(employee.salaryPerYear / 1000).toFixed(0)}K/year
         </p>
       </Card>
     </div>

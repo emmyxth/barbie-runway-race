@@ -1,5 +1,4 @@
 import { forwardRef } from "react";
-import { User } from "lucide-react";
 import barbieBus from "@/assets/barbie-bus.png";
 import { DroppedEmployee } from "@/types/game";
 
@@ -24,14 +23,18 @@ export const BarbieBus = forwardRef<HTMLDivElement, BarbieBusProps>(
         {employees.map((emp) => (
           <div
             key={emp.id}
-            className={`absolute w-12 h-12 rounded-full ${emp.color} border-2 border-white flex items-center justify-center shadow-lg`}
+            className="absolute w-32 h-32 rounded-full bg-barbie-pink border-2 border-white overflow-hidden shadow-lg"
             style={{
               left: `${emp.position.x}%`,
               top: `${emp.position.y}%`,
               transform: "translate(-50%, -50%)",
             }}
           >
-            <User className="w-6 h-6 text-white" />
+            <img 
+              src={emp.image} 
+              alt={emp.name}
+              className="w-full h-full object-cover"
+            />
           </div>
         ))}
       </div>
