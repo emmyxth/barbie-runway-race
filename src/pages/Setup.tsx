@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { Upload } from "lucide-react";
 import barbieBus from "@/assets/barbie-bus.png";
 import barbieLogo from "@/assets/barbie-logo.svg";
 
@@ -31,11 +30,11 @@ const Setup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-sky flex items-center justify-center p-4">
-      <div className="w-full max-w-7xl grid md:grid-cols-2 gap-8 items-center">
+    <div className="h-screen w-screen bg-gradient-sky flex items-center justify-center overflow-hidden">
+      <div className="w-full h-full grid md:grid-cols-2 items-center">
         {/* Left Side - Setup Form */}
-        <Card className="p-8 md:p-12 bg-card/95 backdrop-blur-sm shadow-barbie border-2 border-primary/20 animate-bounce-in">
-          <div className="space-y-8">
+        <Card className="h-full rounded-none p-8 md:p-12 shadow-barbie border-2 border-primary/20 animate-bounce-in flex items-center justify-center">
+          <div className="space-y-8 w-full max-w-2xl">
             <div className="space-y-3 flex flex-col items-start justify-start">
               <img src={barbieLogo} alt="Barbie Logo" className="h-20 md:h-24" />
               <h2 className="text-4xl md:text-5xl font-bold text-foreground">
@@ -77,13 +76,13 @@ const Setup = () => {
         </Card>
 
         {/* Right Side - Barbie Car Preview */}
-        <div className="hidden md:flex items-center justify-center animate-bounce-in animation-delay-200">
-          <div className="relative">
+        <div className="hidden md:flex h-full items-center justify-center animate-bounce-in animation-delay-200 px-12">
+          <div className="relative w-full">
             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse-glow" />
             <img
               src={barbieBus}
               alt="Barbie Car"
-              className="relative w-full max-w-2xl drop-shadow-2xl animate-[float_3s_ease-in-out_infinite]"
+              className="relative w-full drop-shadow-2xl animate-[float_3s_ease-in-out_infinite]"
               style={{
                 animation: "float 3s ease-in-out infinite",
               }}
