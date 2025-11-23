@@ -121,6 +121,10 @@ const Game = () => {
           className="flex-1 relative bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
+          {/* Red overlay when slowing down */}
+          {isSlowingDown && (
+            <div className="absolute inset-0 bg-red-600/30 pointer-events-none animate-pulse z-0" />
+          )}
           <Road isSlowingDown={isSlowingDown} />
           <BarbieBus 
             ref={busRef} 

@@ -12,7 +12,7 @@ export const BarbieBus = forwardRef<HTMLDivElement, BarbieBusProps>(
     return (
       <div
         ref={ref}
-        className="absolute bottom-32 top-8 w-full h-full"
+        className={`absolute bottom-32 top-8 w-full h-full ${isSlowingDown ? 'animate-shake' : ''}`}
       >
         <img
           src={barbieBus}

@@ -69,7 +69,7 @@ const Setup = () => {
               <Button
                 onClick={handleStart}
                 disabled={!runway || parseInt(runway) <= 0}
-                className="w-full h-14 text-xl font-bold bg-gradient-barbie hover:opacity-90 transition-opacity shadow-barbie"
+                className="w-full h-14 text-xl font-bold bg-black text-white hover:opacity-90 transition-opacity shadow-barbie"
                 size="lg"
               >
                 Start

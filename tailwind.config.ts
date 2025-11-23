@@ -117,6 +117,11 @@ export default {
           "0%, 100%": { boxShadow: "0 0 20px hsl(328 78% 50% / 0.6)" },
           "50%": { boxShadow: "0 0 40px hsl(328 78% 50% / 0.9)" },
         },
+        "shake": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translateX(-10px)" },
+          "20%, 40%, 60%, 80%": { transform: "translateX(10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -131,6 +136,7 @@ export default {
         "wheel-spin": "wheel-spin 1s linear infinite",
         "wheel-spin-slow": "wheel-spin 3s linear infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "shake": "shake 0.5s ease-in-out infinite",
       },
     },
   },
