@@ -22,6 +22,19 @@ export const GameOverDialog = ({
   employees, 
   onRestart 
 }: GameOverDialogProps) => {
+  // Prioritize mentioning interns or janitors, otherwise use any role
+  const getPriorityRole = () => {
+    const intern = employees.find(e => e.role.toLowerCase().includes('intern'));
+    if (intern) return intern.role;
+    
+    const janitor = employees.find(e => e.role.toLowerCase().includes('janitor'));
+    if (janitor) return janitor.role;
+    
+    return employees[0]?.role || 'employee';
+  };
+
+  const priorityRole = getPriorityRole();
+
   return (
     <Dialog open={open} onOpenChange={() => {}}>
       <DialogContent className="bg-gradient-barbie border-4 border-white">
@@ -32,7 +45,7 @@ export const GameOverDialog = ({
           </DialogTitle>
           <DialogDescription className="text-lg text-white text-center space-y-4">
             <p>
-            You bankrupted Barbie's startup after you hired too many {employees.filter(e => e.role.includes("Intern")).length > 0 ? "SWE interns" : "team members"}!
+            You bankrupted Barbie's startup after you hired too many {priorityRole}s!
             </p>
             <Button
               onClick={onRestart}
