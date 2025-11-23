@@ -86,7 +86,11 @@ export default {
         },
         "slide-right": {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(50%)" },
+        },
+        "road-scroll": {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "100% 0" },
         },
         "fall-down": {
           "0%": { transform: "translateY(-100%)", opacity: "0" },
@@ -116,6 +120,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "slide-right": "slide-right 20s linear infinite",
         "slide-right-slow": "slide-right 40s linear infinite",
+        "road-scroll": "road-scroll 20s linear infinite",
+        "road-scroll-slow": "road-scroll 40s linear infinite",
         "fall-down": "fall-down 8s linear infinite",
         "fall-smooth": "fall-smooth 6s linear forwards",
         "bounce-in": "bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
