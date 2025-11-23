@@ -44,24 +44,27 @@ const Setup = () => {
               Barbie has a super-important pitch tonight for her dazzling new startup, and she NEEDS the perfect dream team by her side. Her iconic Dream Bus is ready to roll but there’s one catch: Barbie only has so much headcount runway left, and every hire counts. 
               </p>
               <p className="text-lg text-foreground">
-              <span className="font-bold">Your Mission:</span>Build Barbie’s Dream Team before the headcount runway hits zero!
+              <span className="font-bold">Your Mission: </span>Build Barbie’s Dream Team before the headcount runway hits zero!
               </p>
             </div>
 
             <div className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="runway" className="text-lg font-semibold text-foreground">
-                  Enter your runway (months)
+                  Enter your runway ($)
                 </Label>
-                <Input
-                  id="runway"
-                  type="number"
-                  min="1"
-                  placeholder="24"
-                  value={runway}
-                  onChange={(e) => setRunway(e.target.value)}
-                  className="h-14 text-lg border-2 border-primary/30 focus:border-primary transition-colors"
-                />
+                <div className="relative">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-muted-foreground">$</span>
+                  <Input
+                    id="runway"
+                    type="number"
+                    min="1"
+                    placeholder="1000000"
+                    value={runway}
+                    onChange={(e) => setRunway(e.target.value)}
+                    className="h-14 text-lg pl-8 border-2 border-primary/30 focus:border-primary transition-colors"
+                  />
+                </div>
               </div>
               <Button
                 onClick={handleStart}

@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { DroppedEmployee } from "@/types/game";
+import barbieGrave from "@/assets/barbie-grave.png";
 
 interface GameOverDialogProps {
   open: boolean;
@@ -25,16 +26,13 @@ export const GameOverDialog = ({
     <Dialog open={open} onOpenChange={() => {}}>
       <DialogContent className="bg-gradient-barbie border-4 border-white">
         <DialogHeader>
+          <img src={barbieGrave} alt="Barbie Logo" className="h-64 md:h-64 mx-auto" />
           <DialogTitle className="text-4xl font-bold text-white text-center mb-4">
-            Game Over! 💸
+            Game Over!
           </DialogTitle>
           <DialogDescription className="text-lg text-white text-center space-y-4">
             <p>
-              Your Barbie bus broke down after <span className="font-bold text-2xl">{monthsLeft}</span> months!
-            </p>
-            <p>
-              You hired <span className="font-bold">{employees.length}</span> employees,
-              including too many {employees.filter(e => e.role.includes("Intern")).length > 0 ? "SWE interns" : "team members"}!
+            You bankrupted Barbie's startup after you hired too many {employees.filter(e => e.role.includes("Intern")).length > 0 ? "SWE interns" : "team members"}!
             </p>
             <Button
               onClick={onRestart}

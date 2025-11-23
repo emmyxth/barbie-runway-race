@@ -13,9 +13,9 @@ import { Employee, DroppedEmployee, EMPLOYEE_POOL } from "@/types/game";
 const Game = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { runway: initialRunway, logo } = location.state || { runway: 24, logo: null };
+  const { runway: initialRunway, logo } = location.state || { runway: 1000000, logo: null };
   
-  const [runway, setRunway] = useState(initialRunway);
+  const [runwayDollars, setRunwayDollars] = useState(initialRunway);
   const [employees, setEmployees] = useState<DroppedEmployee[]>([]);
   const [fallingEmployees, setFallingEmployees] = useState<(Employee & { top: number })[]>([]);
   const [gameOver, setGameOver] = useState(false);
@@ -48,10 +48,10 @@ const Game = () => {
 
   // Check game over
   useEffect(() => {
-    if (runway <= 0 && !gameOver) {
+    if (runwayDollars <= 0 && !gameOver) {
       setGameOver(true);
     }
-  }, [runway, gameOver]);
+  }, [runwayDollars, gameOver]);
 
   const handleDragStart = (employee: Employee) => {
     setDraggedEmployee(employee);
@@ -79,7 +79,7 @@ const Game = () => {
       };
 
       setEmployees((prev) => [...prev, newEmployee]);
-      setRunway((prev) => Math.max(0, prev - (draggedEmployee.salaryPerYear / 12000)));
+      setRunwayDollars((prev) => Math.max(0, prev - draggedEmployee.salaryPerYear));
       
       // Remove from falling employees
       setFallingEmployees((prev) => 
@@ -98,8 +98,10 @@ const Game = () => {
     navigate("/");
   };
 
-  const monthsLeft = Math.floor(runway);
-  const isSlowingDown = runway < 12;
+  // Calculate monthly burn rate
+  const monthlyBurn = employees.reduce((sum, emp) => sum + emp.salaryPerYear / 12, 0);
+  const monthsLeft = monthlyBurn > 0 ? Math.floor(runwayDollars / monthlyBurn) : Infinity;
+  const isSlowingDown = monthsLeft < 12 && monthsLeft !== Infinity;
 
   return (
     <div 
@@ -108,7 +110,7 @@ const Game = () => {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
     >
-      <RunwayCounter runway={runway} />
+      <RunwayCounter runwayDollars={runwayDollars} monthsLeft={monthsLeft} />
       <LogoDisplay logo={logo} />
 
       {/* Game Area */}
