@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Upload } from "lucide-react";
 import barbieBus from "@/assets/barbie-bus.png";
+import barbieLogo from "@/assets/barbie-logo.svg";
 
 const Setup = () => {
   const navigate = useNavigate();
@@ -35,13 +36,17 @@ const Setup = () => {
         {/* Left Side - Setup Form */}
         <Card className="p-8 md:p-12 bg-card/95 backdrop-blur-sm shadow-barbie border-2 border-primary/20 animate-bounce-in">
           <div className="space-y-8">
-            <div className="space-y-3">
-              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-barbie bg-clip-text text-transparent">
-                Barbie's
-              </h1>
+            <div className="space-y-3 flex flex-col items-start justify-start">
+              <img src={barbieLogo} alt="Barbie Logo" className="h-20 md:h-24" />
               <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                Headcount Planner
+                Startup Dream Team
               </h2>
+              <p className="text-lg text-foreground">
+              Barbie has a super-important pitch tonight for her dazzling new startup, and she NEEDS the perfect dream team by her side. Her iconic Dream Bus is ready to roll but there’s one catch: Barbie only has so much headcount runway left, and every hire counts. 
+              </p>
+              <p className="text-lg text-foreground">
+              <span className="font-bold">Your Mission:</span>Build Barbie’s Dream Team before the headcount runway hits zero!
+              </p>
             </div>
 
             <div className="space-y-6">
@@ -59,37 +64,6 @@ const Setup = () => {
                   className="h-14 text-lg border-2 border-primary/30 focus:border-primary transition-colors"
                 />
               </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="logo" className="text-lg font-semibold text-foreground">
-                  Your startup logo (optional)
-                </Label>
-                <div className="relative">
-                  <Input
-                    id="logo"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleLogoUpload}
-                    className="hidden"
-                  />
-                  <label
-                    htmlFor="logo"
-                    className="flex items-center justify-center gap-3 h-32 border-2 border-dashed border-primary/30 rounded-lg cursor-pointer hover:border-primary transition-colors bg-muted/50 hover:bg-muted"
-                  >
-                    {logo ? (
-                      <img src={logo} alt="Logo" className="h-24 object-contain" />
-                    ) : (
-                      <div className="text-center">
-                        <Upload className="mx-auto h-8 w-8 text-muted-foreground mb-2" />
-                        <p className="text-sm text-muted-foreground">
-                          Click to upload PNG/JPG
-                        </p>
-                      </div>
-                    )}
-                  </label>
-                </div>
-              </div>
-
               <Button
                 onClick={handleStart}
                 disabled={!runway || parseInt(runway) <= 0}
